@@ -1,30 +1,32 @@
-import './App.css';
+// import './App.css';
 import axios from 'axios';
-import React from 'react';
+import {useState, useEffect} from 'react';
 
 const baseURL = 'http://localhost:3000/api/generate/prompt';
 
 function App() {
-  const [word, setWord] = React.useState(null);
 
-  React.useEffect(() => {
+  const [word, setWord] = useState(null);
+
+  const getNewWord = () => {
     axios.get(baseURL).then((response) => {
-      console.log(response.data);
-      setWord(response.data);
+      setWord(response.data.randomPrompt);
     });
+  }
+  
+  useEffect(() => {
+    getNewWord()
   }, []);
 
   if (!word) return null;
-
-  console.log(word);
 
   return (
     <div className="App">
       <header className="App-header">
         <p>Hello world!</p>
-        <h1>{word.randomPrompt}</h1>
+        <h1>{word}</h1>
       </header>
-      <button onClick={setWord}>Create Post</button>
+      <button onClick={getNewWord}>Get word</button>
     </div>
   );
 }
