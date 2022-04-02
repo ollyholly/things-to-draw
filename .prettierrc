@@ -4,7 +4,8 @@
   "printWidth": 100,
   "trailingComma": "none",
   "jsxBracketSameLine": true,
-    bracketSpacing: true,
-    proseWrap: 'always',
-    useTabs: false,
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "proseWrap": "always",
+  "useTabs": false
 }

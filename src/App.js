@@ -1,32 +1,42 @@
-// import './App.css';
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { Container, Box, Paper, Stack } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import Header from '../src/containers/Header';
+import PromptBox from './containers/PromptBox';
+import Settings from './containers/Settings';
+import HistoryBox from './containers/HistoryBox';
+import TimeBox from './containers/TimeBox';
 
-const baseURL = "http://localhost:3000/api/generate/prompt";
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary
+}));
 
 function App() {
-  const [word, setWord] = useState(null);
-
-  const getNewWord = () => {
-    axios.get(baseURL).then((response) => {
-      setWord(response.data.randomPrompt);
-    });
-  };
-
-  useEffect(() => {
-    getNewWord();
-  }, []);
-
-  if (!word) return null;
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello world!</p>
-        <h1>{word}</h1>
-      </header>
-      <button onClick={getNewWord}>Get word</button>
-    </div>
+    <Container maxWidth="md">
+      <Box>
+        <Stack spacing={2}>
+          <Item>
+            <Header />
+          </Item>
+          <Item>
+            <PromptBox />
+          </Item>
+          <Item>
+            <Settings />
+          </Item>
+          <Item>
+            <TimeBox />
+          </Item>
+          <Item>
+            <HistoryBox />
+          </Item>
+        </Stack>
+      </Box>
+    </Container>
   );
 }
 
