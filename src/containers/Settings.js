@@ -1,13 +1,26 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { FormControl, InputLabel, Select, MenuItem,  } from '@mui/material';
+import {GameModes, Timers, WordSets} from '../data/Settings'
 
-import { FormControl, InputLabel, Select, MenuItem, FormHelperText } from '@mui/material';
+
+const GameModesList = GameModes.map((mode, i) => <MenuItem value={mode} key={i}>{mode}</MenuItem>)
+const TimersLists = Timers.map((timer, i) => <MenuItem value={timer} key={i}>{timer}</MenuItem>)
+const WordSetsList = WordSets.map((wordSet, i) => <MenuItem value={wordSet} key={i}>{wordSet}</MenuItem>)
 
 const Settings = () => {
-  const [age, setAge] = useState('');
+  const [gameMode, setGameMode] = useState('');
+  const [timer, setTimer] = useState('');
+  const [wordSet, setWordSet] = useState('');
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleGameModeChange = (event) => {
+    setGameMode(event.target.value);
+  };
+  const handleTimerChange = (event) => {
+    setTimer(event.target.value);
+  };
+  const handleWordSetChange = (event) => {
+    setWordSet(event.target.value);
   };
   return (
     <div>
@@ -16,54 +29,46 @@ const Settings = () => {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value={age}
+          value={gameMode}
           label="Game Mode"
-          onChange={handleChange}
+          onChange={handleGameModeChange}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+            {GameModesList}
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
+        
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-helper-label">Word Set</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value={age}
-          label="Age"
-          onChange={handleChange}
+          value={wordSet}
+          label="WordSet"
+          onChange={handleWordSetChange}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {WordSetsList}
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-helper-label">Time</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value={age}
-          label="Time"
-          onChange={handleChange}
+          value={timer}
+          label="Timer"
+          onChange={handleTimerChange}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {TimersLists}
         </Select>
-        <FormHelperText>With label + helper text</FormHelperText>
       </FormControl>
     </div>
   );
