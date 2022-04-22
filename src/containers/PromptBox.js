@@ -59,12 +59,13 @@ const PromptBox = () => {
     >
       <TextField
         id="adjective"
-        variant="outlined"
+        variant="standard"
         value={adjective}
         onChange={handleAdjectiveChange}
       />
-      <TextField id="noun" variant="outlined" value={noun} onChange={handleNounChange} />
-      <TextField id="verb" variant="outlined" value={verb} onChange={handleVerbChange} />
+      <TextField id="noun" variant="standard" value={noun} onChange={handleNounChange} />
+      <TextField id="verb" variant="standard" value={verb} onChange={handleVerbChange} 
+      />
       <Button variant="contained" onClick={getNewWord}>
         Get word
       </Button>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { FormControl, InputLabel, Select, MenuItem,  } from '@mui/material';
+import { FormControl, InputLabel, Select, MenuItem,  Typography} from '@mui/material';
 import {GameModes, Timers, WordSets} from '../data/Settings'
 
 
@@ -24,39 +24,36 @@ const Settings = () => {
   };
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Game Mode</InputLabel>
+      <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+  Settings
+          </Typography>
+      <FormControl sx={{ m: 1, minWidth: 200 }}>
+        <InputLabel id="game-mode-select-label">Game Mode</InputLabel>
         <Select
-          labelId="demo-simple-select-helper-label"
+          labelId="game-mode-select-label"
           id="demo-simple-select-helper"
           value={gameMode}
           label="Game Mode"
           onChange={handleGameModeChange}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
             {GameModesList}
         </Select>
         
       </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Word Set</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 200 }}>
+        <InputLabel id="word-set-select-helper-label">Word Set</InputLabel>
         <Select
-          labelId="demo-simple-select-helper-label"
-          id="demo-simple-select-helper"
+          labelId="word-set-select-helper-label"
+          id="word-set-select-helper"
           value={wordSet}
           label="WordSet"
           onChange={handleWordSetChange}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {WordSetsList}
         </Select>
       </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Time</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 200 }}>
+        <InputLabel id="demo-simple-select-helper-label">Timer</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
@@ -64,9 +61,6 @@ const Settings = () => {
           label="Timer"
           onChange={handleTimerChange}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {TimersLists}
         </Select>
       </FormControl>
