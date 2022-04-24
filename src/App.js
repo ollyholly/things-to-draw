@@ -1,49 +1,25 @@
-import { Container, Box, Paper, Stack } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 import Header from '../src/containers/Header';
-import PromptBox from './containers/PromptBox';
-import Settings from './containers/Settings';
-import HistoryBox from './containers/HistoryBox';
-// import TimerBox from './containers/TimerBox';
+import Login from '../src/pages/Login/Login'
+import Main from '../src/pages/Main/Main'
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary
-}));
-const FirstItem = styled(Item)(({ theme }) => ({
-  marginTop: theme.spacing(6),
-  paddingTop: theme.spacing(6),
-  paddingBottom: theme.spacing(6),
-}));
+
 
 function App() {
   return (
     <>
+      <Router>
       <Header />
-    <Container maxWidth="md">
-      <Box>
-        <Stack spacing={4}>
-          {/* <Item>
-            
-          </Item> */}
-          <FirstItem>
-            <PromptBox />
-          </FirstItem>
-          <Item>
-            <Settings />
-          </Item>
-          {/* <Item>
-            <TimerBox />
-          </Item> */}
-          <Item>
-            <HistoryBox />
-          </Item>
-        </Stack>
-      </Box>
-    </Container>
+              <Routes>
+                <Route exact path="/" element={<Main/>} />
+                <Route exact path="/login" element={<Login/>}  />
+              </Routes>
+      </Router>
     </>
   );
 }
