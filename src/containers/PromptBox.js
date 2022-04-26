@@ -15,7 +15,7 @@ const PromptBox = () => {
     axios
       .get(baseURL)
       .then((response) => {
-        const {prompt} = response.data
+        const { prompt } = response.data;
         setWord(prompt);
         return prompt;
       })
@@ -65,8 +65,7 @@ const PromptBox = () => {
         onChange={handleAdjectiveChange}
       />
       <TextField id="noun" variant="standard" value={noun} onChange={handleNounChange} />
-      <TextField id="verb" variant="standard" value={verb} onChange={handleVerbChange} 
-      />
+      <TextField id="verb" variant="standard" value={verb} onChange={handleVerbChange} />
       <Button variant="contained" onClick={getNewWord}>
         Get prompt
       </Button>

@@ -15,29 +15,29 @@ const Item = styled(Paper)(({ theme }) => ({
 const FirstItem = styled(Item)(({ theme }) => ({
   marginTop: theme.spacing(6),
   paddingTop: theme.spacing(6),
-  paddingBottom: theme.spacing(6),
+  paddingBottom: theme.spacing(6)
 }));
 
 function Main() {
   return (
     <>
-    <Container maxWidth="md">
-      <Box>
-        <Stack spacing={4}>
-          <FirstItem>
-            <PromptBox />
-          </FirstItem>
-          <Item>
-            <Settings />
-          </Item>
-          <Item>
-            <HistoryBox />
-          </Item>
-        </Stack>
-      </Box>
-    </Container>
+      <Container maxWidth="md">
+        <Box>
+          <Stack spacing={4}>
+            <FirstItem>
+              <PromptBox />
+            </FirstItem>
+            <Item>
+              <Settings />
+            </Item>
+            <Item>
+              <HistoryBox />
+            </Item>
+          </Stack>
+        </Box>
+      </Container>
     </>
   );
 }
 
-export default Main
+export default Main;

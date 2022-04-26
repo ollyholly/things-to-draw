@@ -1,6 +1,4 @@
-export const WordSets = [
-  'Easy', 'Difficult', 'Moby'
-]
+export const WordSets = ['Easy', 'Difficult', 'Moby'];
 
 export const GameModes = [
   'Adjective + Noun + Verb',
@@ -8,13 +6,6 @@ export const GameModes = [
   'Character + Environment',
   'Emotion + Character',
   'Adjective + Nount + Style'
-]
+];
 
-export const Timers = [
-  'Unlimited',
-  '30sec',
-  '1min',
-  '1min 30sec',
-  '3min'
-]
-
+export const Timers = ['Unlimited', '30sec', '1min', '1min 30sec', '3min'];

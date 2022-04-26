@@ -3,6 +3,7 @@
 Draft of a frontend for a drawing prompt generator app.
 
 ## To-do
+
 - [x] Build MVP calling prompt generating API
 - [x] Draft main interface with Material UI
 - [ ] Add login/signup forms
@@ -14,7 +15,6 @@ Draft of a frontend for a drawing prompt generator app.
 - [ ] Add authentication with JWT, connect with backend
 - [ ] Refine design
 - [ ] Add new games
-
 
 ## Available Scripts
 

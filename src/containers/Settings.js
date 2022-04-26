@@ -1,12 +1,23 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { FormControl, InputLabel, Select, MenuItem,  Typography} from '@mui/material';
-import {GameModes, Timers, WordSets} from '../data/Settings'
+import { FormControl, InputLabel, Select, MenuItem, Typography } from '@mui/material';
+import { GameModes, Timers, WordSets } from '../data/Settings';
 
-
-const GameModesList = GameModes.map((mode, i) => <MenuItem value={mode} key={i}>{mode}</MenuItem>)
-const TimersLists = Timers.map((timer, i) => <MenuItem value={timer} key={i}>{timer}</MenuItem>)
-const WordSetsList = WordSets.map((wordSet, i) => <MenuItem value={wordSet} key={i}>{wordSet}</MenuItem>)
+const GameModesList = GameModes.map((mode, i) => (
+  <MenuItem value={mode} key={i}>
+    {mode}
+  </MenuItem>
+));
+const TimersLists = Timers.map((timer, i) => (
+  <MenuItem value={timer} key={i}>
+    {timer}
+  </MenuItem>
+));
+const WordSetsList = WordSets.map((wordSet, i) => (
+  <MenuItem value={wordSet} key={i}>
+    {wordSet}
+  </MenuItem>
+));
 
 const Settings = () => {
   const [gameMode, setGameMode] = useState('');
@@ -25,8 +36,8 @@ const Settings = () => {
   return (
     <div>
       <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-  Settings
-          </Typography>
+        Settings
+      </Typography>
       <FormControl sx={{ m: 1, minWidth: 200 }}>
         <InputLabel id="game-mode-select-label">Game Mode</InputLabel>
         <Select
@@ -36,9 +47,8 @@ const Settings = () => {
           label="Game Mode"
           onChange={handleGameModeChange}
         >
-            {GameModesList}
+          {GameModesList}
         </Select>
-        
       </FormControl>
       <FormControl sx={{ m: 1, minWidth: 200 }}>
         <InputLabel id="word-set-select-helper-label">Word Set</InputLabel>
