@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 
-const baseURL = 'http://localhost:3000/api/generate/prompt';
+const baseURL = 'http://localhost:3000/api/prompts/generate';
 
 const PromptBox = () => {
   const [word, setWord] = useState(null);
@@ -15,8 +15,9 @@ const PromptBox = () => {
     axios
       .get(baseURL)
       .then((response) => {
-        setWord(response.data.randomPrompt);
-        return response.data.randomPrompt;
+        const {prompt} = response.data
+        setWord(prompt);
+        return prompt;
       })
       .then((word) => getPOS(word));
   };

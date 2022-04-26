@@ -5,7 +5,8 @@ import {
   Route,
 } from 'react-router-dom';
 import Header from '../src/containers/Header';
-import Login from '../src/pages/Login/Login'
+import SignIn from '../src/pages/SignIn/SignIn'
+import SignUp from './pages/SignUp/SignUp'
 import Main from '../src/pages/Main/Main'
 
 
@@ -17,7 +18,8 @@ function App() {
       <Header />
               <Routes>
                 <Route exact path="/" element={<Main/>} />
-                <Route exact path="/login" element={<Login/>}  />
+                <Route exact path="/signin" element={<SignIn/>}  />
+                <Route exact path="/signup" element={<SignUp/>}  />
               </Routes>
       </Router>
     </>

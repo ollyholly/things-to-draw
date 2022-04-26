@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppBar, Toolbar, Typography, Button} from '@mui/material';
+import { AppBar, Toolbar, Typography, Link} from '@mui/material';
 // import {Menu as MenuIcon} from '@mui/icons-material'
 
 const Header = () => {
@@ -19,7 +19,14 @@ return (
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Draw me this
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link
+              color="inherit"
+              variant="h6"
+              underline="none"
+              href="/signin"
+            >
+              {'Sign in'}
+            </Link>
         </Toolbar>
       </AppBar>
     // </Box>
