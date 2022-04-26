@@ -68,7 +68,7 @@ const PromptBox = () => {
       <TextField id="verb" variant="standard" value={verb} onChange={handleVerbChange} 
       />
       <Button variant="contained" onClick={getNewWord}>
-        Get word
+        Get prompt
       </Button>
     </Box>
   );
