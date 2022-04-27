@@ -3,21 +3,29 @@ import PropTypes from 'prop-types';
 import { List } from '@mui/material';
 
 import PromptHistoryItem from '../PromptHistoryItem/PromptHistoryItem';
+import {connect} from 'react-redux'
+
+const mapStateToProps = state => ({
+  prompts: state.prompts
+})
+
+
 
 const PromptHistoryList = (props) => {
+  // console.log(props)
+  // eslint-disable-next-line react/prop-types
+  const {  prompts, dispatch } = props;
   return (
     <List>
-      {!props.prompts
-        ? 'No prompts yet!'
-        : props.prompts.map((prompt, i) => {
+      {prompts.length == 0
+        ? 'No prompts here!'
+        : prompts.map((prompt) => {
             console.log(prompt);
             return (
               <PromptHistoryItem
-                key={i}
-                text={prompt.text}
-                gameMode={prompt.gameMode}
-                removePrompt={false}
-                favorite={prompt.favorite}
+                key={prompt.id}
+                prompt={prompt}
+                dispatch={dispatch}
               />
             );
           })}
@@ -29,4 +37,4 @@ PromptHistoryList.propTypes = {
   prompts: PropTypes.array
 };
 
-export default PromptHistoryList;
+export default connect(mapStateToProps)(PromptHistoryList)
