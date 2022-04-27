@@ -6,10 +6,10 @@ import { Box, TextField, Button } from '@mui/material';
 const baseURL = 'http://localhost:3000/api/prompts/generate';
 
 const PromptBox = () => {
-  const [word, setWord] = useState(null);
-  const [adjective, setAdjective] = useState(null);
-  const [noun, setNoun] = useState(null);
-  const [verb, setVerb] = useState(null);
+  const [word, setWord] = useState('');
+  const [adjective, setAdjective] = useState('');
+  const [noun, setNoun] = useState('');
+  const [verb, setVerb] = useState('');
 
   const getNewWord = () => {
     axios
@@ -47,7 +47,7 @@ const PromptBox = () => {
     setVerb(verb);
   };
 
-  if (!word) return null;
+  if (!word) return '';
 
   return (
     <Box

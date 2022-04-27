@@ -1,0 +1,3 @@
+export const STAR_PROMPT = 'STAR_PROMPT';
+export const UNSTAR_PROMPT = 'UNSTAR_PROMPT';
+export const DELETE_PROMPT = 'DELETE_PROMPT';

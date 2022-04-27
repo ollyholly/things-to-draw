@@ -1,11 +1,17 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from '../src/containers/Header';
 import SignIn from '../src/pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import Main from '../src/pages/Main/Main';
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    // eslint-disable-next-line react/prop-types
+    console.log(props.store.getState());
+  }, []);
+
   return (
     <>
       <Router>

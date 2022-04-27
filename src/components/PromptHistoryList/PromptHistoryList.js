@@ -10,11 +10,17 @@ const PromptHistoryList = (props) => {
       {!props.prompts
         ? 'No prompts yet!'
         : props.prompts.map((prompt, i) => {
-          console.log(prompt)
-return <PromptHistoryItem key={i} text={prompt.text} gameMode={prompt.gameMode} removePrompt={false} favorite={prompt.favorite} />
-        })
-            
-          }
+            console.log(prompt);
+            return (
+              <PromptHistoryItem
+                key={i}
+                text={prompt.text}
+                gameMode={prompt.gameMode}
+                removePrompt={false}
+                favorite={prompt.favorite}
+              />
+            );
+          })}
     </List>
   );
 };
