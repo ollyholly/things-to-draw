@@ -11,7 +11,6 @@ import { v4 as uuidv4 } from 'uuid';
 const baseURL = 'http://localhost:3000/api/prompts/generate';
 
 const PromptBox = (props) => {
-  const [word, setWord] = useState('');
   const [adjective, setAdjective] = useState('');
   const [noun, setNoun] = useState('');
   const [verb, setVerb] = useState('');
@@ -20,8 +19,10 @@ const PromptBox = (props) => {
     const result = await axios
       .get(baseURL)
       .then((response) => {
-        const { prompt } = response.data;
-        setWord(prompt);
+        const { prompt, adjective, noun, verb } = response.data;
+        setAdjective(adjective);
+        setNoun(noun);
+        setVerb(verb);
         return prompt;
       })
 
@@ -30,8 +31,7 @@ const PromptBox = (props) => {
 
   useEffect(async () => {
     console.log('HERE', props)
-    const prompt = await getNewPrompt();
-    setupPrompt(prompt)
+    await getNewPrompt();
   }, []);
 
   const handleAdjectiveChange = (event) => {
@@ -43,21 +43,6 @@ const PromptBox = (props) => {
   const handleVerbChange = (event) => {
     setVerb(event.target.value);
   };
-
-  const setupPrompt = (prompt) => {
-    const wordArray = prompt.split(' ');
-    const adjective = wordArray[0];
-    const noun = wordArray[1];
-    const verb = wordArray[2];
-
-    setAdjective(adjective);
-    setNoun(noun);
-    setVerb(verb);
-
-    return `${adjective} ${noun} ${verb}`
-  };
-
-  if (!word) return '';
 
  const {dispatch, gameMode} = props;
 
@@ -80,7 +65,6 @@ const PromptBox = (props) => {
       <TextField id="verb" variant="standard" value={verb} onChange={handleVerbChange} />
       <Button variant="contained" onClick={async () => {
         const prompt = await getNewPrompt()
-        setupPrompt(prompt)
         dispatch(addPrompt({
           text: prompt,
           id: uuidv4(),
