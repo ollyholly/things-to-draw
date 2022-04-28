@@ -25,11 +25,11 @@ const promptsHistory = (state = Prompts, action) => {
     case types.ADD_PROMPT:
       return [
         {
-          id: action.id,
-          text: action.text,
-          gameMode: action.gameMode,
-          createdAt: action.createdAt,
-          favorite: action.favorite
+          id: action.payload.id,
+          text: action.payload.prompt,
+          gameMode: action.payload.gameMode,
+          createdAt: action.payload.createdAt,
+          favorite: action.payload.favorite
         },
         ...state
       ];
@@ -50,32 +50,23 @@ const promptsHistory = (state = Prompts, action) => {
   }
 };
 
-const prompt = (state = initialStatePrompt, action={}) => {
+const prompt = (state = initialStatePrompt, action = {}) => {
   switch (action.type) {
     case types.FETCH_PROMPT_PENDING:
-      return {...state,
-        text: action.prompt,
-        adjective: action.adjective,
-        noun: action.noun,
-        verb: action.verb,
-        isPending: true
-      }
+      return {
+        ...state,
+      };
     case types.FETCH_PROMPT_SUCCESS:
-      console.log(action)
-      return {...state, 
-        text: action.prompt,
-        adjective: action.adjective,
-        noun: action.noun,
-        verb: action.verb,
-        createdAt: Date.now,
-        favorite: false,
+      return {
+        ...state,
+        text: action.payload.prompt,
+        adjective: action.payload.adjective,
+        noun: action.payload.noun,
+        verb: action.payload.verb,
         isPending: false
-      }
-      case types.FETCH_PROMPT_FAILED:
-      return {...state, 
-        isPending: false,
-        error: action.error
-      }
+      };
+    case types.FETCH_PROMPT_FAILED:
+      return { ...state, isPending: false, error: action.error };
 
     default:
       return state;

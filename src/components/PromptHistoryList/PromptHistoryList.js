@@ -1,11 +1,23 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// import { useSelector } from 'react-redux'
 import { List } from '@mui/material';
 import PromptHistoryItem from '../PromptHistoryItem/PromptHistoryItem';
+// import { addPrompt} from '../../actions/actions';
 
 const PromptHistoryList = (props) => {
   const { promptsHistory, dispatch } = props;
+
+  // const newPromptIsPending = state => state.prompt.isPending
+
+  // const newPromptIsNotPending = useSelector(newPromptIsPending)
+
+  // if (!newPromptIsNotPending) {
+  //   console.log('YYY', props)
+  //   dispatch(addPrompt)
+  //   console.log('ZZZ', props)
+  // }
 
   return (
     <List>
@@ -25,7 +37,8 @@ PromptHistoryList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  promptsHistory: state.promptsHistory
+  promptsHistory: state.promptsHistory,
+  newPrompt: state.prompt
 });
 
 export default connect(mapStateToProps)(PromptHistoryList);
