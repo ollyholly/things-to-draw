@@ -6,7 +6,6 @@ import { GameModes, Timers, WordSets } from '../data/Settings';
 import { connect } from 'react-redux';
 import { selectGameMode } from '../actions/actions';
 
-
 const GameModesList = GameModes.map((mode, i) => (
   <MenuItem value={mode} key={i}>
     {mode}
@@ -29,9 +28,9 @@ const Settings = (props) => {
   const [wordSet, setWordSet] = useState('');
 
   const handleGameModeChange = (event) => {
-    console.log('HERE', event)
-    setGameMode(event.target.value)
-    dispatch(selectGameMode(event.target.value))
+    console.log('HERE', event);
+    setGameMode(event.target.value);
+    dispatch(selectGameMode(event.target.value));
   };
   const handleTimerChange = (event) => {
     setTimer(event.target.value);
@@ -40,7 +39,7 @@ const Settings = (props) => {
     setWordSet(event.target.value);
   };
 
- const {dispatch} = props 
+  const { dispatch } = props;
 
   return (
     <>
@@ -88,7 +87,7 @@ const Settings = (props) => {
 };
 
 Settings.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -96,4 +95,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(Settings);
-

@@ -5,14 +5,14 @@ import { List } from '@mui/material';
 import PromptHistoryItem from '../PromptHistoryItem/PromptHistoryItem';
 
 const PromptHistoryList = (props) => {
-  const { prompts, dispatch } = props;
+  const { promptsHistory, dispatch } = props;
 
   return (
     <List>
-      {prompts.length == 0
+      {promptsHistory.length == 0
         ? 'No prompts here!'
-        : prompts.map((prompt) => {
-            console.log(prompt);
+        : promptsHistory.map((prompt) => {
+            // console.log(prompt);
             return <PromptHistoryItem key={prompt.id} prompt={prompt} dispatch={dispatch} />;
           })}
     </List>
@@ -20,12 +20,12 @@ const PromptHistoryList = (props) => {
 };
 
 PromptHistoryList.propTypes = {
-  prompts: PropTypes.array,
+  promptsHistory: PropTypes.array,
   dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  prompts: state.prompts
+  promptsHistory: state.promptsHistory
 });
 
 export default connect(mapStateToProps)(PromptHistoryList);
