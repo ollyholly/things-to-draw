@@ -12,13 +12,13 @@ export const Timers = ['Unlimited', '30sec', '1min', '1min 30sec', '3min'];
 
 export const Prompts = [
   {
-    id:'1',
+    id: '1',
     text: 'white fly singing',
     gameMode: 'Adj + Noun + Verb',
     favorite: false
   },
   {
-    id:'2',
+    id: '2',
     text: 'bad lion running',
     gameMode: 'Adj + Noun + Verb',
     favorite: false

@@ -6,10 +6,7 @@ import SignIn from '../src/pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import Main from '../src/pages/Main/Main';
 
-
 function App() {
-  
-
   return (
     <>
       <Router>
@@ -25,4 +22,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

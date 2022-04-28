@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Typography, Button, Stack } from '@mui/material';
-// import { styled } from '@mui/material/styles';
 
 const TimerBox = () => {
   return (

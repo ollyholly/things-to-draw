@@ -1,7 +1,11 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem, Typography } from '@mui/material';
 import { GameModes, Timers, WordSets } from '../data/Settings';
+import { connect } from 'react-redux';
+import { selectGameMode } from '../actions/actions';
+
 
 const GameModesList = GameModes.map((mode, i) => (
   <MenuItem value={mode} key={i}>
@@ -19,13 +23,15 @@ const WordSetsList = WordSets.map((wordSet, i) => (
   </MenuItem>
 ));
 
-const Settings = () => {
+const Settings = (props) => {
   const [gameMode, setGameMode] = useState('');
   const [timer, setTimer] = useState('');
   const [wordSet, setWordSet] = useState('');
 
   const handleGameModeChange = (event) => {
-    setGameMode(event.target.value);
+    console.log('HERE', event)
+    setGameMode(event.target.value)
+    dispatch(selectGameMode(event.target.value))
   };
   const handleTimerChange = (event) => {
     setTimer(event.target.value);
@@ -33,8 +39,11 @@ const Settings = () => {
   const handleWordSetChange = (event) => {
     setWordSet(event.target.value);
   };
+
+ const {dispatch} = props 
+
   return (
-    <div>
+    <>
       <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
         Settings
       </Typography>
@@ -74,8 +83,17 @@ const Settings = () => {
           {TimersLists}
         </Select>
       </FormControl>
-    </div>
+    </>
   );
 };
 
-export default Settings;
+Settings.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  gameMode: state.gameMode
+});
+
+export default connect(mapStateToProps)(Settings);
+

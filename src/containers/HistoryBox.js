@@ -3,24 +3,6 @@ import { Typography } from '@mui/material';
 
 import PromptHistoryList from '../components/PromptHistoryList/PromptHistoryList';
 
-// const DUMMY_PROMPT_LIST = [
-//   {
-//     text: 'white fly singing',
-//     gameMode: 'Adj + Noun + Verb',
-//     favorite: false
-//   },
-//   {
-//     text: 'bad lion running',
-//     gameMode: 'Adj + Noun + Verb',
-//     favorite: false
-//   },
-//   {
-//     text: 'red crab dancing',
-//     gameMode: 'Adj + Noun + Verb',
-//     favorite: true
-//   }
-// ];
-
 const HistoryBox = () => {
   return (
     <>
