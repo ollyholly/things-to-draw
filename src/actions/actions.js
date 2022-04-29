@@ -3,7 +3,9 @@ import axios from 'axios';
 
 const baseURL = 'http://localhost:3000/api/prompts/generate';
 
-export const fetchPrompt = () => (dispatch) => {
+export const fetchPrompt = () => (dispatch, getState) => {
+  const state = getState()
+  console.log('LALALA',state)
   dispatch(fetchPromptPending());
   axios
     .get(baseURL)
