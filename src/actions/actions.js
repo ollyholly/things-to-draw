@@ -54,15 +54,15 @@ export const addPrompt = ({ text, gameMode, id, createdAt, favorite }) => ({
 
 export const starPrompt = (id) => ({
   type: types.STAR_PROMPT,
-  id
+  payload: id
 });
 
 export const deletePrompt = (id) => ({
   type: types.DELETE_PROMPT,
-  id
+  payload: id
 });
 
 export const selectGameMode = (gameMode) => ({
   type: types.SELECT_GAME_MODE,
-  gameMode
+  payload: gameMode
 });

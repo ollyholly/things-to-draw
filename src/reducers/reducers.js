@@ -36,14 +36,14 @@ const promptsHistory = (state = Prompts, action) => {
 
     case types.STAR_PROMPT:
       return state.map((prompt) => {
-        if (prompt.id === action.id) {
+        if (prompt.id === action.payload) {
           return { ...prompt, favorite: !prompt.favorite };
         }
         return prompt;
       });
 
     case types.DELETE_PROMPT:
-      return state.filter((prompt) => prompt.id !== action.id);
+      return state.filter((prompt) => prompt.id !== action.payload);
 
     default:
       return state;
@@ -78,7 +78,7 @@ const initialGameMode = 'Adjective + Noun + Verb';
 const gameMode = (state = initialGameMode, action) => {
   switch (action.type) {
     case types.SELECT_GAME_MODE:
-      return action.gameMode;
+      return action.payload;
 
     default:
       return state;
