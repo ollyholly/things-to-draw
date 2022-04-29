@@ -25,7 +25,13 @@ const promptReducer = (state = initialPromptState, action = {}) => {
     case types.FETCH_PROMPT_SUCCESS:
       return {
         ...state,
-        prompt: action.payload,
+        prompt: {
+          ...action.payload,
+          emotion: 'happy',
+          style: 'Picasso',
+          noun2: 'dinosaur',
+          environment: 'in a forest',
+        },
         isPending: false
       };
     case types.FETCH_PROMPT_FAILED:
