@@ -28,7 +28,6 @@ const Settings = (props) => {
   const [wordSet, setWordSet] = useState('');
 
   const handleGameModeChange = (event) => {
-    console.log('HERE', event);
     setGameMode(event.target.value);
     dispatch(selectGameMode(event.target.value));
   };

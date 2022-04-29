@@ -6,9 +6,9 @@ Draft of a frontend for a drawing prompt generator app.
 
 - [x] Build MVP calling prompt generating API
 - [x] Draft main interface with Material UI
-- [ ] Add login/signup forms
-- [ ] Add router
-- [ ] Add Redux and set up different game modes
+- [x] Add login/signup forms
+- [x] Add router
+- [x] Add Redux and set up different game modes
 - [ ] Refactor and split components
 - [ ] Convert to Typescript
 - [ ] Add working timer

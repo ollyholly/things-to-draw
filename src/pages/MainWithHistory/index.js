@@ -19,7 +19,7 @@ const FirstItem = styled(Item)(({ theme }) => ({
   paddingBottom: theme.spacing(6)
 }));
 
-function Main() {
+function MainWithHistory() {
   return (
     <>
       <Container maxWidth="md">
@@ -41,4 +41,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainWithHistory;

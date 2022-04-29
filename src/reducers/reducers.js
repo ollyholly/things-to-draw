@@ -1,84 +1,50 @@
 import * as types from '../constants/ActionTypes';
 import { combineReducers } from 'redux';
-import { Prompts } from '../data/Settings';
 
-const initialStatePrompt = {
-  id: '',
-  text: '',
-  gameMode: '',
-  createdAt: '',
-  favorite: false,
+const DEFAULT_GAME_MODE = 'Adjective + Noun + Verb'
+
+const initialPromptState = {
+  prompt: {
+    id: '',
+    text: '',
+    gameMode: '',
+    createdAt: '',
+    favorite: false,
+  },
   isPending: false,
   error: ''
 };
 
-const promptsHistory = (state = Prompts, action) => {
-  switch (action.type) {
-    // case types.FETCH_PROMPTS_HISTORY:
-    //   return [{
-    //     id: action.id,
-    //     text: action.text,
-    //     gameMode: action.gameMode,
-    //     createdAt: action.createdAt,
-    //     favorite: action.favorite
-    //   }, ...state];
-    case types.ADD_PROMPT:
-      return [
-        {
-          id: action.payload.id,
-          text: action.payload.prompt,
-          gameMode: action.payload.gameMode,
-          createdAt: action.payload.createdAt,
-          favorite: action.payload.favorite
-        },
-        ...state
-      ];
-
-    case types.STAR_PROMPT:
-      return state.map((prompt) => {
-        if (prompt.id === action.id) {
-          return { ...prompt, favorite: !prompt.favorite };
-        }
-        return prompt;
-      });
-
-    case types.DELETE_PROMPT:
-      return state.filter((prompt) => prompt.id !== action.id);
-
-    default:
-      return state;
-  }
-};
-
-const prompt = (state = initialStatePrompt, action = {}) => {
+const promptReducer = (state = initialPromptState, action = {}) => {
   switch (action.type) {
     case types.FETCH_PROMPT_PENDING:
       return {
         ...state,
+        isPending: true
       };
     case types.FETCH_PROMPT_SUCCESS:
       return {
         ...state,
-        text: action.payload.prompt,
-        adjective: action.payload.adjective,
-        noun: action.payload.noun,
-        verb: action.payload.verb,
+        prompt: action.payload,
         isPending: false
       };
     case types.FETCH_PROMPT_FAILED:
-      return { ...state, isPending: false, error: action.error };
+      return { ...state, 
+        error: action.error,
+        isPending: false, 
+      };
 
     default:
       return state;
   }
 };
 
-const initialGameMode = 'Adjective + Noun + Verb';
+const initialGameModeState= DEFAULT_GAME_MODE;
 
-const gameMode = (state = initialGameMode, action) => {
+const gameModeReducer = (state = initialGameModeState, action) => {
   switch (action.type) {
     case types.SELECT_GAME_MODE:
-      return action.gameMode;
+      return action.payload;
 
     default:
       return state;
@@ -86,7 +52,6 @@ const gameMode = (state = initialGameMode, action) => {
 };
 
 export default combineReducers({
-  prompt,
-  promptsHistory,
-  gameMode
+  prompt: promptReducer,
+  gameMode: gameModeReducer
 });
