@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes';
 import { combineReducers } from 'redux';
 
-const DEFAULT_GAME_MODE = 'Adjective + Noun + Verb'
+const DEFAULT_GAME_MODE = 'Adjective + Noun + Verb';
 
 const initialPromptState = {
   prompt: {
@@ -9,7 +9,7 @@ const initialPromptState = {
     text: '',
     gameMode: '',
     createdAt: '',
-    favorite: false,
+    favorite: false
   },
   isPending: false,
   error: ''
@@ -30,22 +30,19 @@ const promptReducer = (state = initialPromptState, action = {}) => {
           emotion: 'happy',
           style: 'Picasso',
           noun2: 'dinosaur',
-          environment: 'in a forest',
+          environment: 'in a forest'
         },
         isPending: false
       };
     case types.FETCH_PROMPT_FAILED:
-      return { ...state, 
-        error: action.error,
-        isPending: false, 
-      };
+      return { ...state, error: action.error, isPending: false };
 
     default:
       return state;
   }
 };
 
-const initialGameModeState= DEFAULT_GAME_MODE;
+const initialGameModeState = DEFAULT_GAME_MODE;
 
 const gameModeReducer = (state = initialGameModeState, action) => {
   switch (action.type) {
