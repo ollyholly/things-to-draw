@@ -10,9 +10,6 @@ const Header = () => {
             {'Draw me this'}
           </Link>
         </Typography>
-        <Link color="inherit" variant="h6" underline="none" href="/signin">
-          {'Sign in'}
-        </Link>
       </Toolbar>
     </AppBar>
   );

@@ -5,10 +5,15 @@ const baseURL = 'http://localhost:3000/api/prompts/generate';
 
 export const fetchPrompt = () => (dispatch, getState) => {
   const state = getState()
-  console.log('LALALA',state)
+  console.log('STATE',state)
   dispatch(fetchPromptPending());
-  axios
-    .get(baseURL)
+  axios({
+    method: 'get',
+    url: baseURL,
+    params: {
+      gameMode: state.gameMode
+    },
+  })
     .then((res) => {
       dispatch(fetchPromptSuccess(res));
     })
