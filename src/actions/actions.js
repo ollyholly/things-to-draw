@@ -11,7 +11,8 @@ export const fetchPrompt = () => (dispatch, getState) => {
     method: 'get',
     url: baseURL,
     params: {
-      gameMode: state.gameMode
+      gameMode: state.gameMode,
+      wordPack: state.wordPack
     }
   })
     .then((res) => {
@@ -37,4 +38,9 @@ export const fetchPromptFailed = (error) => ({
 export const selectGameMode = (gameMode) => ({
   type: types.SELECT_GAME_MODE,
   payload: gameMode
+});
+
+export const selectWordPack = (wordPack) => ({
+  type: types.SELECT_WORD_PACK,
+  payload: wordPack
 });

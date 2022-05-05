@@ -1,4 +1,4 @@
-export const WordSets = ['Easy', 'Difficult', 'Moby'];
+export const WordPacks = ['Easy', 'Difficult', 'Moby'];
 
 export const GameModes = [
   'Adjective + Noun + Verb',

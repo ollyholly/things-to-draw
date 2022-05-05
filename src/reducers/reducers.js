@@ -2,6 +2,7 @@ import * as types from '../constants/ActionTypes';
 import { combineReducers } from 'redux';
 
 const DEFAULT_GAME_MODE = 'Adjective + Noun + Verb';
+const DEFAULT_WORD_PACK = 'Easy';
 
 const initialPromptState = {
   prompt: {
@@ -54,7 +55,20 @@ const gameModeReducer = (state = initialGameModeState, action) => {
   }
 };
 
+const initialWordPackState = DEFAULT_WORD_PACK;
+
+const wordPackReducer = (state = initialWordPackState, action) => {
+  switch (action.type) {
+    case types.SELECT_WORD_PACK:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   prompt: promptReducer,
-  gameMode: gameModeReducer
+  gameMode: gameModeReducer,
+  wordPack: wordPackReducer
 });

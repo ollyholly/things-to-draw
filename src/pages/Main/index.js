@@ -1,7 +1,7 @@
 import { Container, Box, Paper, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import PromptBox from '../../containers/PromptBox';
-import Settings from '../../containers/Settings';
+import SettingsBox from '../../containers/SettingsBox';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -26,7 +26,7 @@ function Main() {
               <PromptBox />
             </FirstItem>
             <Item>
-              <Settings />
+              <SettingsBox />
             </Item>
           </Stack>
         </Box>
