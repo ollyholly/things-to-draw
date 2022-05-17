@@ -1,33 +1,30 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Button, Typography, Stack } from '@mui/material';
-import { connect } from 'react-redux';
-import { fetchPrompt } from '../actions/actions';
+// import { connect } from 'react-redux';
+// import { fetchPrompt } from '../actions/actions';
+import { useDispatch } from 'react-redux';
+import { fetchPrompt } from '../feature/promptSlice';
 
-const PromptBox = (props) => {
-  const selectNoun = (state) => state.prompt.prompt.noun;
-  const selectNounTwo = (state) => state.prompt.prompt.noun2;
-  const selectEmotion = (state) => state.prompt.prompt.emotion;
-  const selectAdjective = (state) => state.prompt.prompt.adjective;
-  const selectVerb = (state) => state.prompt.prompt.verb;
-  const selectEnvironment = (state) => state.prompt.prompt.environment;
-  const selectStyle = (state) => state.prompt.prompt.style;
-
-  const noun = useSelector(selectNoun);
-  const noun2 = useSelector(selectNounTwo);
-  const emotion = useSelector(selectEmotion);
-  const environment = useSelector(selectEnvironment);
-  const adjective = useSelector(selectAdjective);
-  const verb = useSelector(selectVerb);
-  const style = useSelector(selectStyle);
+const PromptBox = () => {
+  const dispatch = useDispatch();
+  const gameMode = useSelector((state) => state.gameMode.value);
+  const noun = useSelector((state) => state.prompt.value.noun);
+  const noun2 = useSelector((state) => state.prompt.value.noun2);
+  const emotion = useSelector((state) => state.prompt.value.emotion);
+  const environment = useSelector((state) => state.prompt.value.environment);
+  const adjective = useSelector((state) => state.prompt.value.adjective);
+  const verb = useSelector((state) => state.prompt.value.verb);
+  const style = useSelector((state) => state.prompt.value.style);
 
   useEffect(async () => {
     dispatch(fetchPrompt());
-  }, []);
+  }, [dispatch]);
 
-  const { dispatch, gameMode } = props;
+  // const { gameMode } = props;
+  console.log('GM', gameMode);
 
   const renderSwitch = (param) => {
     switch (param) {
@@ -130,19 +127,20 @@ const PromptBox = (props) => {
   );
 };
 
-PromptBox.propTypes = {
-  gameMode: PropTypes.string.isRequired,
-  prompt: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  error: PropTypes.string,
-  isPending: PropTypes.bool
-};
+// PromptBox.propTypes = {
+//   gameMode: PropTypes.string.isRequired,
+//   prompt: PropTypes.object.isRequired,
+//   // dispatch: PropTypes.func.isRequired,
+//   error: PropTypes.string,
+//   isPending: PropTypes.bool
+// };
 
-const mapStateToProps = (state) => ({
-  gameMode: state.gameMode,
-  prompt: state.prompt.prompt,
-  error: state.prompt.error,
-  isPending: state.prompt.isPending
-});
+// const mapStateToProps = (state) => ({
+//   gameMode: state.gameMode,
+//   prompt: state.prompt.prompt,
+//   error: state.prompt.error,
+//   isPending: state.prompt.isPending
+// });
 
-export default connect(mapStateToProps)(PromptBox);
+export default PromptBox;
+// export default connect(mapStateToProps)(PromptBox);

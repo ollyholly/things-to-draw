@@ -1,12 +1,15 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import { useState } from 'react';
 import { MenuItem, Typography } from '@mui/material';
 import { GameModes, WordPacks } from '../data/Settings';
-import { connect } from 'react-redux';
-import { selectGameMode, selectWordPack } from '../actions/actions';
+// import { connect } from 'react-redux';
+import { selectGameMode } from '../feature/gameModeSlice';
+import { selectWordPack } from '../feature/wordPackSlice';
+// import { selectGameMode, selectWordPack } from '../actions/actions';
 import GameModeSelector from '../components/GameModeSelector/GameModeSelector';
 import WordPackSelector from '../components/WordPackSelector/WordPackSelector';
+import { useDispatch, useSelector } from 'react-redux';
 
 const GameModesList = GameModes.map((mode, i) => (
   <MenuItem value={mode} key={i}>
@@ -19,8 +22,12 @@ const WordPacksList = WordPacks.map((wordPack, i) => (
   </MenuItem>
 ));
 
-const SettingsBox = (props) => {
+const SettingsBox = () => {
+  const gameMode = useSelector((state) => state.gameMode.value);
+  const wordPack = useSelector((state) => state.wordPack.value);
+  const dispatch = useDispatch();
   // const [wordSet, setWordSet] = useState('');
+  console.log('gameMode', gameMode);
 
   const handleGameModeChange = (event) => {
     dispatch(selectGameMode(event.target.value));
@@ -29,8 +36,6 @@ const SettingsBox = (props) => {
     dispatch(selectWordPack(event.target.value));
     // setWordSet(event.target.value);
   };
-
-  const { dispatch, gameMode, wordPack } = props;
 
   return (
     <>
@@ -51,15 +56,17 @@ const SettingsBox = (props) => {
   );
 };
 
-SettingsBox.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  gameMode: PropTypes.string.isRequired,
-  wordPack: PropTypes.string.isRequired
-};
+// SettingsBox.propTypes = {
+//   dispatch: PropTypes.func.isRequired,
+//   // gameMode: PropTypes.string.isRequired,
+//   wordPack: PropTypes.string.isRequired
+// };
 
-const mapStateToProps = (state) => ({
-  gameMode: state.gameMode,
-  wordPack: state.wordPack
-});
+// const mapStateToProps = (state) => ({
+//   gameMode: state.gameMode,
+//   wordPack: state.wordPack
+// });
 
-export default connect(mapStateToProps)(SettingsBox);
+export default SettingsBox;
+
+// export default connect(mapStateToProps)(SettingsBox);
