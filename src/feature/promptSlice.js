@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
-
 const baseURL = 'http://localhost:3000/api/prompts/generate';
 
 export const fetchPrompt = createAsyncThunk(
@@ -55,7 +53,5 @@ const promptSlice = createSlice({
     }
   }
 });
-
-// export const { fetchPrompt } = promptSlice.actions;
 
 export default promptSlice.reducer;

@@ -1,10 +1,7 @@
 import * as React from 'react';
-// import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Button, Typography, Stack } from '@mui/material';
-// import { connect } from 'react-redux';
-// import { fetchPrompt } from '../actions/actions';
 import { useDispatch } from 'react-redux';
 import { fetchPrompt } from '../feature/promptSlice';
 
@@ -22,9 +19,6 @@ const PromptBox = () => {
   useEffect(async () => {
     dispatch(fetchPrompt());
   }, [dispatch]);
-
-  // const { gameMode } = props;
-  console.log('GM', gameMode);
 
   const renderSwitch = (param) => {
     switch (param) {
@@ -127,20 +121,4 @@ const PromptBox = () => {
   );
 };
 
-// PromptBox.propTypes = {
-//   gameMode: PropTypes.string.isRequired,
-//   prompt: PropTypes.object.isRequired,
-//   // dispatch: PropTypes.func.isRequired,
-//   error: PropTypes.string,
-//   isPending: PropTypes.bool
-// };
-
-// const mapStateToProps = (state) => ({
-//   gameMode: state.gameMode,
-//   prompt: state.prompt.prompt,
-//   error: state.prompt.error,
-//   isPending: state.prompt.isPending
-// });
-
 export default PromptBox;
-// export default connect(mapStateToProps)(PromptBox);

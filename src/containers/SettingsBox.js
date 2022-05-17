@@ -1,14 +1,10 @@
 import * as React from 'react';
-// import PropTypes from 'prop-types';
-// import { useState } from 'react';
 import { MenuItem, Typography } from '@mui/material';
 import { GameModes, WordPacks } from '../data/Settings';
-// import { connect } from 'react-redux';
 import { selectGameMode } from '../feature/gameModeSlice';
 import { selectWordPack } from '../feature/wordPackSlice';
-// import { selectGameMode, selectWordPack } from '../actions/actions';
-import GameModeSelector from '../components/GameModeSelector/GameModeSelector';
-import WordPackSelector from '../components/WordPackSelector/WordPackSelector';
+import GameModeSelector from '../components/GameModeSelector';
+import WordPackSelector from '../components/WordPackSelector';
 import { useDispatch, useSelector } from 'react-redux';
 
 const GameModesList = GameModes.map((mode, i) => (
@@ -26,7 +22,6 @@ const SettingsBox = () => {
   const gameMode = useSelector((state) => state.gameMode.value);
   const wordPack = useSelector((state) => state.wordPack.value);
   const dispatch = useDispatch();
-  // const [wordSet, setWordSet] = useState('');
   console.log('gameMode', gameMode);
 
   const handleGameModeChange = (event) => {
@@ -34,7 +29,6 @@ const SettingsBox = () => {
   };
   const handleWordPackChange = (event) => {
     dispatch(selectWordPack(event.target.value));
-    // setWordSet(event.target.value);
   };
 
   return (
@@ -56,17 +50,4 @@ const SettingsBox = () => {
   );
 };
 
-// SettingsBox.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-//   // gameMode: PropTypes.string.isRequired,
-//   wordPack: PropTypes.string.isRequired
-// };
-
-// const mapStateToProps = (state) => ({
-//   gameMode: state.gameMode,
-//   wordPack: state.wordPack
-// });
-
 export default SettingsBox;
-
-// export default connect(mapStateToProps)(SettingsBox);
