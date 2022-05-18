@@ -15,6 +15,8 @@ const PromptBox = () => {
   const adjective = useSelector((state) => state.prompt.value.adjective);
   const verb = useSelector((state) => state.prompt.value.verb);
   const style = useSelector((state) => state.prompt.value.style);
+  const handpickedPrompt = useSelector((state) => state.prompt.value.handpicked);
+  const singleWord = useSelector((state) => state.prompt.value.single_word);
 
   useEffect(async () => {
     dispatch(fetchPrompt());
@@ -89,6 +91,22 @@ const PromptBox = () => {
             </Typography>
             <Typography component="div" variant="h4">
               {!style ? '' : style}
+            </Typography>
+          </>
+        );
+      case 'Handpicked':
+        return (
+          <>
+            <Typography component="div" variant="h4">
+              {!handpickedPrompt ? '' : handpickedPrompt}
+            </Typography>
+          </>
+        );
+      case 'Single word':
+        return (
+          <>
+            <Typography component="div" variant="h4">
+              {!singleWord ? '' : singleWord}
             </Typography>
           </>
         );

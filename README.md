@@ -9,12 +9,12 @@ Draft of a frontend for a drawing prompt generator app.
 - [x] Add login/signup forms
 - [x] Add router
 - [x] Add Redux and set up different game modes
-- [ ] Refactor and split components
+- [x] Refactor and split components
+- [ ] Refine design
 - [ ] Convert to Typescript
 - [ ] Add working timer
-- [ ] Add authentication with JWT, connect with backend
-- [ ] Refine design
 - [ ] Add new games
+- [-] Add authentication with JWT, connect with backend
 
 ## Available Scripts
 

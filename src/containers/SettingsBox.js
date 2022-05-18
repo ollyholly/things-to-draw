@@ -22,7 +22,6 @@ const SettingsBox = () => {
   const gameMode = useSelector((state) => state.gameMode.value);
   const wordPack = useSelector((state) => state.wordPack.value);
   const dispatch = useDispatch();
-  console.log('gameMode', gameMode);
 
   const handleGameModeChange = (event) => {
     dispatch(selectGameMode(event.target.value));

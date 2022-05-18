@@ -5,5 +5,7 @@ export const GameModes = [
   'Noun + Noun + Verb',
   'Character + Environment',
   'Emotion + Character',
-  'Adjective + Nount + Style'
+  'Adjective + Nount + Style',
+  'Single word',
+  'Handpicked'
 ];

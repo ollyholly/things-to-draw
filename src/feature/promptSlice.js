@@ -45,7 +45,9 @@ const promptSlice = createSlice({
         emotion: 'happy',
         style: 'Picasso',
         noun2: 'dinosaur',
-        environment: 'in a forest'
+        environment: 'in a forest',
+        handpicked: 'ecstasy',
+        single_word: 'bug'
       }
     },
     [fetchPrompt.rejected]: (state, action) => {

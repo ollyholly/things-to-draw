@@ -11,9 +11,6 @@ export const gameModeSlice = createSlice({
   initialState,
   reducers: {
     selectGameMode: (state, action) => {
-      console.log('SSTATE', state);
-      console.log('AACTION', action);
-      console.log('SSTATE', state);
       state.value = action.payload;
     }
   }
