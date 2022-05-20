@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Button, Typography, Stack } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { fetchPrompt } from '../feature/promptSlice';
+import { fetchPrompt } from '../../feature/promptSlice';
 
 const PromptBox = () => {
   const dispatch = useDispatch();
@@ -11,12 +11,11 @@ const PromptBox = () => {
   const noun = useSelector((state) => state.prompt.value.noun);
   const noun2 = useSelector((state) => state.prompt.value.noun2);
   const emotion = useSelector((state) => state.prompt.value.emotion);
-  const environment = useSelector((state) => state.prompt.value.environment);
   const adjective = useSelector((state) => state.prompt.value.adjective);
   const verb = useSelector((state) => state.prompt.value.verb);
   const style = useSelector((state) => state.prompt.value.style);
-  const handpickedPrompt = useSelector((state) => state.prompt.value.handpicked);
-  const singleWord = useSelector((state) => state.prompt.value.single_word);
+  // const handpickedPrompt = useSelector((state) => state.prompt.value.handpicked);
+  const word = useSelector((state) => state.prompt.value.word);
 
   useEffect(async () => {
     dispatch(fetchPrompt());
@@ -24,7 +23,7 @@ const PromptBox = () => {
 
   const renderSwitch = (param) => {
     switch (param) {
-      case 'Adjective + Noun + Verb':
+      case 'Adjective Noun Verb':
         return (
           <>
             <Typography component="div" variant="h4">
@@ -38,7 +37,7 @@ const PromptBox = () => {
             </Typography>
           </>
         );
-      case 'Noun + Noun + Verb':
+      case 'Two Characters Story':
         return (
           <>
             <Typography component="div" variant="h4">
@@ -55,7 +54,7 @@ const PromptBox = () => {
             </Typography>
           </>
         );
-      case 'Emotion + Character':
+      case 'Emotional Character':
         return (
           <>
             <Typography component="div" variant="h4">
@@ -66,18 +65,7 @@ const PromptBox = () => {
             </Typography>
           </>
         );
-      case 'Character + Environment':
-        return (
-          <>
-            <Typography component="div" variant="h4">
-              {!noun ? '' : noun}
-            </Typography>
-            <Typography component="div" variant="h4">
-              {!environment ? '' : environment}
-            </Typography>
-          </>
-        );
-      case 'Adjective + Nount + Style':
+      case 'In Style':
         return (
           <>
             <Typography component="div" variant="h4">
@@ -94,19 +82,11 @@ const PromptBox = () => {
             </Typography>
           </>
         );
-      case 'Handpicked':
+      case 'Single Word':
         return (
           <>
             <Typography component="div" variant="h4">
-              {!handpickedPrompt ? '' : handpickedPrompt}
-            </Typography>
-          </>
-        );
-      case 'Single word':
-        return (
-          <>
-            <Typography component="div" variant="h4">
-              {!singleWord ? '' : singleWord}
+              {!word ? '' : word}
             </Typography>
           </>
         );

@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-const DEFAULT_GAME_MODE = 'Adjective + Noun + Verb';
+import { DEFAULT_GAME_MODE } from '../data/Settings';
 
 const initialState = {
   value: DEFAULT_GAME_MODE

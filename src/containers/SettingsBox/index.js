@@ -1,27 +1,28 @@
 import * as React from 'react';
 import { MenuItem, Typography } from '@mui/material';
-import { GameModes, WordPacks } from '../data/Settings';
-import { selectGameMode } from '../feature/gameModeSlice';
-import { selectWordPack } from '../feature/wordPackSlice';
-import GameModeSelector from '../components/GameModeSelector';
-import WordPackSelector from '../components/WordPackSelector';
+import { GameModes, gmWordPacks } from '../../data/Settings';
+import { selectGameMode } from '../../feature/gameModeSlice';
+import { selectWordPack } from '../../feature/wordPackSlice';
+import GameModeSelector from '../../components/GameModeSelector';
+import WordPackSelector from '../../components/WordPackSelector';
 import { useDispatch, useSelector } from 'react-redux';
-
-const GameModesList = GameModes.map((mode, i) => (
-  <MenuItem value={mode} key={i}>
-    {mode}
-  </MenuItem>
-));
-const WordPacksList = WordPacks.map((wordPack, i) => (
-  <MenuItem value={wordPack} key={i}>
-    {wordPack}
-  </MenuItem>
-));
 
 const SettingsBox = () => {
   const gameMode = useSelector((state) => state.gameMode.value);
   const wordPack = useSelector((state) => state.wordPack.value);
   const dispatch = useDispatch();
+
+  const GameModesList = GameModes.map((mode, i) => (
+    <MenuItem value={mode} key={i}>
+      {mode}
+    </MenuItem>
+  ));
+
+  const WordPacksList = gmWordPacks[gameMode].map((wordPack, i) => (
+    <MenuItem value={wordPack} key={i}>
+      {wordPack}
+    </MenuItem>
+  ));
 
   const handleGameModeChange = (event) => {
     dispatch(selectGameMode(event.target.value));

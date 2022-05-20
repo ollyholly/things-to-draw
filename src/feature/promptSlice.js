@@ -12,8 +12,8 @@ export const fetchPrompt = createAsyncThunk(
         method: 'get',
         url: baseURL,
         params: {
-          gameMode: state.gameMode,
-          wordPack: state.wordPack
+          gameMode: state.gameMode.value,
+          wordPack: state.wordPack.value
         }
       });
       return response.data;
@@ -48,7 +48,7 @@ const promptSlice = createSlice({
         environment: 'in a forest',
         handpicked: 'ecstasy',
         single_word: 'bug'
-      }
+      };
     },
     [fetchPrompt.rejected]: (state, action) => {
       state.error = action.payload.message;

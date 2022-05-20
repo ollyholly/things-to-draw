@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-const DEFAULT_WORD_PACK = 'Easy';
+import { DEFAULT_WORD_PACK } from '../data/Settings';
 
 const initialState = {
   value: DEFAULT_WORD_PACK
