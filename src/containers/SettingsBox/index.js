@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { MenuItem, Typography } from '@mui/material';
-import { GameModes, gmWordPacks } from '../../data/Settings';
+import { gameModesWordPacks } from '../../data/Settings';
 import { selectGameMode } from '../../feature/gameModeSlice';
 import { selectWordPack } from '../../feature/wordPackSlice';
 import GameModeSelector from '../../components/GameModeSelector';
@@ -12,13 +12,13 @@ const SettingsBox = () => {
   const wordPack = useSelector((state) => state.wordPack.value);
   const dispatch = useDispatch();
 
-  const GameModesList = GameModes.map((mode, i) => (
+  const GameModesList = Object.keys(gameModesWordPacks).map((mode, i) => (
     <MenuItem value={mode} key={i}>
       {mode}
     </MenuItem>
   ));
 
-  const WordPacksList = gmWordPacks[gameMode].map((wordPack, i) => (
+  const WordPacksList = gameModesWordPacks[gameMode].map((wordPack, i) => (
     <MenuItem value={wordPack} key={i}>
       {wordPack}
     </MenuItem>

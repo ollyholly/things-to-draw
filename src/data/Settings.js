@@ -1,19 +1,10 @@
-export const gmWordPacks = {
+export const gameModesWordPacks = {
   'Adjective Noun Verb': ['all', 'easy', 'hard', 'animals'],
-  'Two Characters Story': ['all', 'easy', 'hard', 'animals', 'people'],
-  'Emotional Character': ['all', 'easy', 'hard', 'animals', 'people'],
-  'In Style': ['all', 'objects', 'characters'],
-  'Single Word': ['all', 'animals', 'nouns', 'emotions']
+  'Two characters story': ['all', 'easy', 'hard', 'animals', 'people'],
+  'Emotional character': ['all', 'easy', 'hard', 'animals', 'people'],
+  'In style': ['all', 'objects', 'characters'],
+  'Single word': ['all', 'animals', 'nouns', 'emotions']
 };
 
-export const GameModes = [
-  'Adjective Noun Verb',
-  'Two Characters Story',
-  'Emotional Character',
-  'In Style',
-  'Single Word'
-  // 'Handpicked'
-];
-
 export const DEFAULT_GAME_MODE = 'Adjective Noun Verb';
-export const DEFAULT_WORD_PACK = 'easy';
+export const DEFAULT_WORD_PACK = 'all';
