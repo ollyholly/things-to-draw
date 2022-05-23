@@ -41,7 +41,7 @@ const promptSlice = createSlice({
     [fetchPrompt.fulfilled]: (state, action) => {
       state.isPending = false;
       state.value = {
-        ...action.payload,
+        ...action.payload
       };
     },
     [fetchPrompt.rejected]: (state, action) => {

@@ -16,9 +16,9 @@ const PromptBox = () => {
   return (
     <>
       <Stack direction="row" spacing={5} justifyContent="center" alignItems="center">
-      <Typography component="div" variant="h4">
-               {!prompt ? '' : prompt}
-             </Typography>
+        <Typography component="div" variant="h4">
+          {!prompt ? '' : prompt}
+        </Typography>
         <Button variant="contained" onClick={() => dispatch(fetchPrompt())}>
           Get prompt
         </Button>
