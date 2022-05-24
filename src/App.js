@@ -17,7 +17,6 @@ function App() {
       <Wrapper>
         <Background />
         <WaveWrapper>
-          {/* <Wave /> */}
           <BlobAnimation />
         </WaveWrapper>
         <ThemeProvider theme={theme}>
@@ -29,6 +28,7 @@ function App() {
             </Routes>
           </Router>
         </ThemeProvider>
+        
       </Wrapper>
     </>
   );
