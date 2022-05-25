@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Button, Typography, Stack } from '@mui/material';
@@ -15,12 +14,25 @@ const PromptBox = () => {
 
   return (
     <>
-      <Stack direction="row" spacing={5} justifyContent="center" alignItems="center">
-        <Typography component="div" variant="h4">
+      <Stack
+        direction="column"
+        spacing={5}
+        justifyContent="center"
+        alignItems="center"
+        sx={{ mt: 10, mb: 10 }}
+      >
+        <Typography
+          component="div"
+          variant="h3"
+          color="primary.main"
+          sx={{
+            mb: 2
+          }}
+        >
           {!prompt ? '' : prompt}
         </Typography>
         <Button variant="contained" onClick={() => dispatch(fetchPrompt())}>
-          Get prompt
+          new prompt
         </Button>
       </Stack>
     </>

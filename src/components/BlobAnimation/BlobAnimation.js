@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-export default function BlobAnimation() {
+const BlobAnimation = () => {
   return (
     <>
       <Blob />
@@ -8,7 +8,7 @@ export default function BlobAnimation() {
       <Blob3 />
     </>
   );
-}
+};
 
 const move = keyframes`
   from { 
@@ -71,10 +71,17 @@ const Blob2 = styled(Blob)`
   filter: blur(30px);
 `;
 
-const Blob3= styled(Blob)`
-width: 300px;
-height: 400px;
-background: linear-gradient(196deg, rgba(198,48,231,1) 0%, rgba(255,135,222,1) 30%, rgba(255,240,140,1) 100%);
+const Blob3 = styled(Blob)`
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(
+    196deg,
+    rgba(198, 48, 231, 1) 0%,
+    rgba(255, 135, 222, 1) 30%,
+    rgba(255, 240, 140, 1) 100%
+  );
   animation: ${move3} 40s infinite alternate;
   filter: blur(30px);
 `;
+
+export default BlobAnimation;

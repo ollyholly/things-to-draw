@@ -1,21 +1,16 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './containers/Header/Header';
-import Main from './pages/Main';
+import Header from './containers/Header';
+import Footer from './containers/Footer';
+import Main from './pages/Main/Main';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './styles/theme';
 import styled from 'styled-components';
-import Background from './components/Background';
-// import Wave from './components/Wave';
 import BlobAnimation from './components/BlobAnimation';
-// import TextSection from "./Components/TextSection";
-// import Card from "./Components/Card";
 
 function App() {
   return (
     <>
       <Wrapper>
-        <Background />
         <WaveWrapper>
           <BlobAnimation />
         </WaveWrapper>
@@ -27,8 +22,8 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Router>
+          <Footer />
         </ThemeProvider>
-        
       </Wrapper>
     </>
   );

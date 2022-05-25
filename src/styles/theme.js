@@ -1,13 +1,26 @@
 import { createTheme } from '@mui/material/styles';
-// import { green, purple } from '@mui/material/colors';
+
+// import { green} from '@mui/material/colors';
 
 export const theme = createTheme({
-  // palette: {
-  //   primary: {
-  //     main: purple[500],
-  //   },
-  //   secondary: {
-  //     main: green[500],
-  //   },
-  // },
+  palette: {
+    primary: {
+      main: '#222222'
+    }
+  },
+  typography: {
+    fontFamily: ['Work Sans', 'sans-serif'].join(','),
+    h1: {
+      fontWeight: 200
+    },
+    h2: {
+      fontWeight: 500
+    },
+    h3: {
+      fontWeight: 500
+    },
+    body1: {
+      fontWeight: 400
+    }
+  }
 });

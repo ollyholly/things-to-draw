@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { MenuItem, Typography } from '@mui/material';
+import { MenuItem, Typography, Grid } from '@mui/material';
 import { gameModesWordPacks } from '../../data/Settings';
 import { selectGameMode } from '../../feature/gameModeSlice';
 import { selectWordPack } from '../../feature/wordPackSlice';
@@ -33,19 +32,34 @@ const SettingsBox = () => {
 
   return (
     <>
-      <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-        Settings
-      </Typography>
-      <GameModeSelector
-        value={gameMode}
-        onChange={handleGameModeChange}
-        gameModesList={GameModesList}
-      />
-      <WordPackSelector
-        value={wordPack}
-        onChange={handleWordPackChange}
-        wordPackList={WordPacksList}
-      />
+      <Grid container m={5}>
+        <Grid
+          item
+          xs={1}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignContent: 'center',
+            flexDirection: 'column'
+          }}
+        >
+          <Typography variant="h6" component="div">
+            Settings
+          </Typography>
+        </Grid>
+        <Grid item xs={11}>
+          <GameModeSelector
+            value={gameMode}
+            onChange={handleGameModeChange}
+            gameModesList={GameModesList}
+          />
+          <WordPackSelector
+            value={wordPack}
+            onChange={handleWordPackChange}
+            wordPackList={WordPacksList}
+          />
+        </Grid>
+      </Grid>
     </>
   );
 };
