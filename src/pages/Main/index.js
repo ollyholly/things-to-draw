@@ -1,7 +1,7 @@
 import { Container, Box, Paper, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import PromptBox from '../../containers/PromptBox';
-import SettingsBox from '../../containers/SettingsBox';
+import PromptBox from '../../containers/PromptBox/PromptBox';
+import SettingsBox from '../../containers/SettingsBox/SettingsBox';
 // import styledC from 'styled-components';
 
 
