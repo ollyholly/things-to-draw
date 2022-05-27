@@ -4,7 +4,7 @@ import { FormControl, Select, InputLabel } from '@mui/material';
 const GameModeSelector = (props) => {
   const { value, onChange, gameModesList } = props;
   return (
-    <FormControl sx={{ m: 1, minWidth: 300 }}>
+    <FormControl sx={{ minWidth: 250, m:1 }}>
       <InputLabel id="game-mode-select-label">Game Mode</InputLabel>
       <Select
         labelId="game-mode-select-label"

@@ -11,7 +11,7 @@ const Header = () => {
           height: 200
         }}
       >
-        <Typography variant="h1">Draw This Thing</Typography>
+        <Typography variant="h1" textAlign="center">Draw This Thing</Typography>
       </Box>
     </Container>
   );

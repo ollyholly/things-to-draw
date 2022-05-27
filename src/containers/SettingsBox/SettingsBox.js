@@ -32,10 +32,11 @@ const SettingsBox = () => {
 
   return (
     <>
-      <Grid container m={5}>
+      <Grid container sx={{p:5}}>
         <Grid
           item
-          xs={1}
+          xs={12}
+          md={1}
           sx={{
             display: 'flex',
             justifyContent: 'center',
@@ -47,7 +48,10 @@ const SettingsBox = () => {
             Settings
           </Typography>
         </Grid>
-        <Grid item xs={11}>
+        <Grid item 
+
+        xs={12} md={11}>
+        
           <GameModeSelector
             value={gameMode}
             onChange={handleGameModeChange}
