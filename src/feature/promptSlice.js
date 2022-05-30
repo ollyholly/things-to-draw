@@ -5,7 +5,7 @@ import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_BASE_URL;
 
 
-// test commit
+console.log(API_URL)
 
 const baseURL = `http://${API_URL}/api/prompts/generate`;
 
