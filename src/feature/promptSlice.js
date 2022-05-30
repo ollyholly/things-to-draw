@@ -1,7 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/api/prompts/generate';
+// eslint-disable-next-line no-undef
+const API_URL = process.env.REACT_APP_API_BASE_URL;
+
+
+const baseURL = `http://${API_URL}/api/prompts/generate`;
 
 export const fetchPrompt = createAsyncThunk(
   'prompt/fetchPrompt',
