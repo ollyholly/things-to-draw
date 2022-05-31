@@ -7,7 +7,7 @@ const API_URL = process.env.REACT_APP_API_BASE_URL;
 
 console.log(API_URL)
 
-const baseURL = `http://${API_URL}/api/prompts/generate`;
+const baseURL = `https://${API_URL}/api/prompts/generate`;
 
 export const fetchPrompt = createAsyncThunk(
   'prompt/fetchPrompt',
