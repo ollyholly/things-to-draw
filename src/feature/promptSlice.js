@@ -4,9 +4,6 @@ import axios from 'axios';
 // eslint-disable-next-line no-undef
 const API_URL = process.env.REACT_APP_API_BASE_URL;
 
-
-console.log(API_URL)
-
 const baseURL = `https://${API_URL}/api/prompts/generate`;
 
 export const fetchPrompt = createAsyncThunk(
